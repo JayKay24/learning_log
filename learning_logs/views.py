@@ -32,6 +32,7 @@ def topic(request, topic_id):
 
     return render(request, 'learning_logs/topic.html', context)
 
+@login_required
 def new_topic(request):
     """
     Add a new topic.
