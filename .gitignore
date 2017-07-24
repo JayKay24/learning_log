@@ -1,5 +1,6 @@
 learning_log/__pycache__/*
 learning_logs/__pycache__/*
+learning_logs/migrations/__pycache__/*
 users/__pycache__/*
 users/migrations/__pycache__/*
 *.sqlite3
