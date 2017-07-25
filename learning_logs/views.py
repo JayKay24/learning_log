@@ -30,7 +30,7 @@ def topic(request, topic_id):
     # Make sure the topic belongs to the current user.
     if topic.owner != request.user:
         raise Http404
-        
+
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
 
@@ -83,6 +83,8 @@ def edit_entry(request, entry_id):
     """
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # Initial request; pre-fill form with the current entry.
